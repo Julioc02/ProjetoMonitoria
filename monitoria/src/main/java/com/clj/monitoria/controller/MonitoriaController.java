@@ -8,14 +8,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.clj.monitoria.model.Aluno;
+import com.clj.monitoria.model.Monitores;
 import com.clj.monitoria.repository.Alunos;
+import com.clj.monitoria.repository.Monitor;
 
 @Controller
 public class MonitoriaController {
 	@Autowired
 	Alunos alunos;
-	
-	
+	@Autowired
+	Monitor monitor;
+		
+    @GetMapping("/")
+    public ModelAndView ListarHome() {
+   	 ModelAndView modelAndView = new ModelAndView("index");
+   	 modelAndView.addObject("Monitores", monitor.findAll());
+   	 modelAndView.addObject(new Monitores());
+   	 return modelAndView;
+    }
+    @PostMapping("/monitores")
+    public String salvar(Monitores monitores) {
+   	  monitor.save(monitores);
+   	  return "redirect:/";
+    }
+    
+    
+    
+   @GetMapping("/deletar/{id}")
+   public String deletar(@PathVariable("id") Long id) {
+   	monitor.deleteById(id);
+   	return "redirect:/";
+    }
    @GetMapping("/alunos")
    public ModelAndView Listar() {
 	   ModelAndView modelAndView = new ModelAndView("monitoria");
@@ -24,6 +47,8 @@ public class MonitoriaController {
 	   modelAndView.addObject(new Aluno());
 	   return modelAndView;
    }
+   
+   
    @PostMapping("/aluno")
    public String Salvar(Aluno aluno) {
 	   this.alunos.save(aluno);
@@ -35,6 +60,4 @@ public class MonitoriaController {
   	alunos.deleteById(id);
   	return "redirect:/alunos";
    }
-
-   
 }
