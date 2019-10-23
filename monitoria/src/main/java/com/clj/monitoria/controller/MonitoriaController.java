@@ -2,6 +2,7 @@ package com.clj.monitoria.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,20 @@ public class MonitoriaController {
    	monitor.deleteById(id);
    	return "redirect:/";
     }
+   
+   @GetMapping("/editarMonitor/{id}")
+   public String editarMonitor(@PathVariable("id") Long id,  Model model) {
+   	model.addAttribute("dados", monitor.findById(id));
+   	return "editarMonitores";
+    }
+
+   
+   
+  
+   
+   
+   
+   
    @GetMapping("/alunos")
    public ModelAndView Listar() {
 	   ModelAndView modelAndView = new ModelAndView("monitoria");
@@ -60,4 +75,10 @@ public class MonitoriaController {
   	alunos.deleteById(id);
   	return "redirect:/alunos";
    }
+   
+   @GetMapping("/editarAlunos/{id}")
+   public String editarAlunos(@PathVariable("id") Long id,  Model model) {
+   	model.addAttribute("dados", alunos.findById(id));
+   	return "editarAlunos";
+    }
 }

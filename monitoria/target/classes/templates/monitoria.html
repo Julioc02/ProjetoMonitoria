@@ -57,7 +57,7 @@ xmlns:th="http://www.thymeleaf.org"
 					       <td th:text="${c.nome}"></td>
 						   <td th:text="${c.dia}"></td>
 						   <td><a th:href="@{/delete/{id}(id=${c.id})}"><img  src="/img/del2.png"  width="20px" height="20px"/></a></td>
-						   <td><a><img  src="/img/edit.png"  width="20px" height="20px"/></a></td>		   
+						   <td><a  th:href="@{/editarAlunos/{id}(id=${c.id})}"><img  src="/img/edit.png"  width="20px" height="20px"/></a></td>		   
 				</tr>
 				
 				</tbody>			

@@ -59,7 +59,7 @@
 					
 					<td th:text="${c.dia}"></td>
 					<td><a th:href="@{/deletar/{id}(id=${c.id})}"><img  src="/img/del2.png"  width="20px" height="20px"/></a></td>
-					<td><a href="#"><img  src="/img/edit.png"  width="20px" height="20px"/></a></td>
+					<td><a th:href="@{/editarMonitor/{id}(id=${c.id})}"><img  src="/img/edit.png"  width="20px" height="20px"/></a></td>
 				</tr>
 			
 				</tbody>			

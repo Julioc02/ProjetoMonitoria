@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:th="http://www.thymeleaf.org">
+		
+		<form th:object="${dados}" method="POST" action="/aluno">
+		<label>Id:</label>
+		       <input type="text" th:field="*{id}" readonly="readonly">
+		
+		
+		    <label>Numero da chamada:</label>
+		       <input type="text" th:field="*{numero}">
+		    <label>Nome:</label>
+		       <input type="text" th:field="*{nome}">
+		  <label> Dia:</label>
+		       <input type="text" th:field="*{dia}">
+		       
+		       <input type="submit" value="Editar">
+		</form>
+		
+		
+		
+		
+		
+		</html>
