@@ -1,14 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 			xmlns:th="http://www.thymeleaf.org">
-			<head>
-				<meta charset="utf-8">
-				<title>Monitória de Alunos - Editar Monitor</title>
-			</head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	           <div align="center" width="800px">
+	           <div align="center" width="1500px">
 	
-		<form th:object="${dados}" method="POST" action="/aluno">
-		<div class="form-group mb-2">
+		<form th:object="${dados}" method="POST" action="/aluno" class="form-inline">
+		<div class="form-group">
 		  
 			     <label for="exampleInputEmail2">Id: </label>
 			     <input type="text" class="form-control" th:field="*{id}" readonly="readonly">
@@ -38,3 +34,4 @@
 		
 		
 		
+		</html>
